@@ -1,41 +1,35 @@
-# gainsight-churnzero-retention-risk-ledger
+# Gainsight ChurnZero Retention Risk Ledger
 
-Gainsight ChurnZero Retention Risk Ledger is a Kinetic Gain portfolio proof repo for **Gainsight, ChurnZero** across Revenue Operations.
+Gainsight ChurnZero Retention Risk Ledger is a Kinetic Gain enterprise signal benchmark for Revenue Operations. It turns scattered SaaS, platform, security, analytics, integration, and workforce signals into a board-ready decision packet.
 
-It turns customer-success risk, renewal exposure, adoption gaps, and retention intervention proof into a small board-readable intelligence packet: where risk is building, where money is leaking, what deserves investment, and what story leaders can tell with evidence.
+## Buyer problem
 
-## Platform and company signals
+Enterprise leaders rarely need another vendor inventory. They need a defensible answer to four questions:
 
-- Gainsight
-- ChurnZero
+- Where are we exposed?
+- Where can we save money?
+- Where should we invest?
+- What story do we tell the board or investors?
 
-## What it includes
+## What this repo proves
 
-- runnable Node CLI for summarizing synthetic control-plane lanes
-- JSON fixture with exposure, savings, and investment lanes
-- static proof page in site/index.html
-- lightweight CI using Node's built-in test runner
-- no production credentials, no customer data, no external API calls
+- Normalizes 2 named platform and company signals into a comparable operating view.
+- Scores exposure, savings, and investment lanes from deterministic fixture data.
+- Produces a board-safe static evidence surface without requiring live credentials or tenant access.
+- Makes the shared Kinetic Gain pattern explicit: normalize signals, score risk, route next actions, and package proof.
+
+## Public surface
+
+- Live: https://mizcausevic-dev.github.io/gainsight-churnzero-retention-risk-ledger/
+- Portfolio: https://portfolio.kineticgain.com/
 
 ## Local run
 
-`powershell
+```bash
 npm test
-npm run demo
 npm run build
-`
+```
 
-## Output shape
+## Security boundary
 
-`json
-{
-  "product": "Gainsight ChurnZero Retention Risk Ledger",
-  "signals": ["Gainsight", "ChurnZero"],
-  "averageScore": 82,
-  "priorityLane": "investment"
-}
-`
-
-## Kinetic Gain fit
-
-This repo supports the Platform and Company Signals layer of the portfolio atlas. It is intentionally small, readable, and evidence-oriented so executives can see the operating pattern without requiring access to live enterprise systems.
+This public repo uses synthetic fixture data only. Do not add customer tenant exports, secrets, employee records, financial records, tokens, or private operational evidence to the repository.

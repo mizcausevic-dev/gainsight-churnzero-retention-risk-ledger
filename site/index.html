@@ -3,42 +3,100 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gainsight ChurnZero Retention Risk Ledger</title>
-  <meta name="description" content="Kinetic Gain proof surface for Gainsight, ChurnZero." />
+  <title>Gainsight ChurnZero Retention Risk Ledger | Kinetic Gain</title>
+  <meta name="description" content="Gainsight ChurnZero Retention Risk Ledger converts enterprise platform signals into board-ready exposure, savings, and investment decisions." />
   <style>
-    :root { color-scheme: dark; --bg:#070b12; --panel:#101827; --line:#26364e; --text:#f4f0e8; --muted:#aeb8ca; --cyan:#32d7f4; --mint:#3ef0ae; --violet:#a78bfa; }
+    :root { color-scheme: dark; --bg:#070b12; --panel:#101827; --panel2:#162236; --line:#27364f; --text:#f6f1e8; --muted:#aeb9cb; --aqua:#25d9f2; --mint:#39e7aa; --violet:#a78bfa; --amber:#ffd166; }
     * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100vh; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--text); background: radial-gradient(circle at 15% 0%, rgba(62,240,174,.12), transparent 35%), radial-gradient(circle at 85% 10%, rgba(50,215,244,.14), transparent 42%), var(--bg); }
-    main { width: min(1120px, calc(100% - 36px)); margin: 0 auto; padding: 56px 0; }
-    .shell { border: 1px solid var(--line); border-radius: 28px; padding: clamp(28px, 6vw, 64px); background: linear-gradient(145deg, rgba(16,24,39,.94), rgba(8,12,20,.86)); box-shadow: 0 24px 90px rgba(0,0,0,.4); }
-    .eyebrow { color: var(--mint); font: 700 12px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .18em; text-transform: uppercase; }
-    h1 { max-width: 860px; margin: 18px 0; font-size: clamp(42px, 8vw, 86px); line-height: .95; letter-spacing: -.06em; }
-    .lede { max-width: 760px; color: var(--muted); font-size: clamp(18px, 2.4vw, 24px); line-height: 1.55; }
-    .signals, .lanes { display: grid; gap: 16px; margin-top: 34px; }
-    .signals { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
-    .chip, .lane { border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.035); padding: 18px; }
-    .chip { color: var(--cyan); font-weight: 800; }
-    .lanes { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-    .lane strong { display: block; font-size: 28px; color: var(--mint); }
-    .lane span { display:block; color: var(--muted); margin-top: 8px; line-height: 1.45; }
+    body { margin:0; background: radial-gradient(circle at 18% 0%, rgba(167,139,250,.16), transparent 32%), radial-gradient(circle at 100% 8%, rgba(37,217,242,.12), transparent 30%), var(--bg); color:var(--text); font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+    main { max-width:1180px; margin:0 auto; padding: clamp(24px, 4vw, 60px) 20px 48px; }
+    .hero, .panel { border:1px solid var(--line); border-radius:30px; background: linear-gradient(145deg, rgba(16,24,39,.96), rgba(8,13,22,.98)); box-shadow:0 24px 90px rgba(0,0,0,.36); }
+    .hero { padding: clamp(28px, 5vw, 58px); overflow:hidden; position:relative; }
+    .hero::after { content:""; position:absolute; inset:0 0 auto; height:4px; background:linear-gradient(90deg,var(--mint),var(--aqua),var(--violet)); }
+    .eyebrow { color:var(--mint); text-transform:uppercase; letter-spacing:.18em; font:800 12px/1.2 ui-monospace, SFMono-Regular, Consolas, monospace; }
+    h1 { max-width:900px; margin:18px 0 18px; font-size:clamp(42px, 7vw, 86px); line-height:.94; letter-spacing:-.06em; }
+    h2 { margin:0 0 16px; font-size:clamp(26px, 4vw, 44px); line-height:1; letter-spacing:-.035em; }
+    h3 { margin:12px 0; font-size:20px; line-height:1.25; }
+    p { color:var(--muted); font-size:17px; line-height:1.7; }
+    .deck { max-width:780px; font-size:20px; }
+    .metrics, .grid, .lenses { display:grid; gap:16px; }
+    .metrics { grid-template-columns:repeat(4,minmax(0,1fr)); margin-top:26px; }
+    .metric, .lane, .lens { border:1px solid rgba(255,255,255,.1); border-radius:20px; padding:18px; background:rgba(255,255,255,.04); }
+    .metric span, .lane-top span, .lens span { color:var(--muted); text-transform:uppercase; letter-spacing:.14em; font:800 11px/1.2 ui-monospace, SFMono-Regular, Consolas, monospace; }
+    .metric strong { display:block; margin-top:8px; color:var(--aqua); font-size:30px; }
+    .panel { margin-top:22px; padding: clamp(24px, 4vw, 42px); }
+    .chips { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+    .chip { min-height:36px; display:inline-flex; align-items:center; border:1px solid rgba(167,139,250,.35); border-radius:999px; padding:8px 12px; background:rgba(167,139,250,.10); color:#dfe7ff; font:700 13px/1 ui-monospace, SFMono-Regular, Consolas, monospace; }
+    .grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .lane-top { display:flex; justify-content:space-between; gap:14px; align-items:center; }
+    .lane-top strong { color:var(--amber); font-size:22px; }
+    .lenses { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .lens b { color:var(--text); }
+    .callout { border-left:4px solid var(--mint); background:rgba(57,231,170,.07); padding:18px 20px; border-radius:18px; }
+    footer { margin-top:24px; color:var(--muted); display:flex; flex-wrap:wrap; gap:14px; font:700 13px/1.4 ui-monospace, SFMono-Regular, Consolas, monospace; }
+    a { color:var(--aqua); }
+    @media (max-width: 760px) { .metrics, .grid, .lenses { grid-template-columns:1fr; } main { padding-inline:14px; } .hero, .panel { border-radius:22px; } }
   </style>
 </head>
 <body>
   <main>
-    <section class="shell">
-      <div class="eyebrow">Kinetic Gain Platform Signal</div>
+    <section class="hero">
+      <div class="eyebrow">Kinetic Gain enterprise signal benchmark</div>
       <h1>Gainsight ChurnZero Retention Risk Ledger</h1>
-      <p class="lede">Board-readable operating proof for customer-success risk, renewal exposure, adoption gaps, and retention intervention proof. Synthetic data only. No production credentials, no customer data, no external API calls.</p>
-      <div class="signals">
-        <div class="chip">Gainsight</div>
-        <div class="chip">ChurnZero</div>
-      </div>
-      <div class="lanes">
-        <article class="lane"><strong>82</strong><span>Exposure confidence with accountable owner and exception path.</span></article>
-        <article class="lane"><strong>76</strong><span>Recoverable savings from duplicate work and stale handoffs.</span></article>
-        <article class="lane"><strong>88</strong><span>Investment lane ranked by board-ready evidence strength.</span></article>
+      <p class="deck">A board-ready operating surface for Revenue Operations leaders who need to answer where the stack is exposed, where spend can be consolidated, where investment is justified, and what story should go to the board.</p>
+      <div class="metrics">
+        <div class="metric"><span>Benchmark confidence</span><strong>82/100</strong></div>
+        <div class="metric"><span>Priority lane</span><strong>Investment</strong></div>
+        <div class="metric"><span>Evidence lanes</span><strong>3</strong></div>
+        <div class="metric"><span>Signals mapped</span><strong>2</strong></div>
       </div>
     </section>
+    <section class="panel">
+      <h2>What the product does</h2>
+      <p>It turns platform, IAM, BI, workflow, HR, RevOps, observability, and integration signals into one executive packet. The value is not the vendor list by itself. The value is the normalized decision layer that connects vendor sprawl to exposure, savings, and investment priority.</p>
+      <div class="chips"><span class="chip">Gainsight</span><span class="chip">ChurnZero</span></div>
+    </section>
+    <section class="panel">
+      <h2>Decision lanes</h2>
+      <div class="grid">
+    <article class="lane">
+      <div class="lane-top"><span>Exposure</span><strong>82/100</strong></div>
+      <h3>Unowned customer-success risk, renewal exposure, adoption gaps, and retention intervention proof</h3>
+      <p><b>Owner:</b> Executive operator</p>
+      <p><b>Next move:</b> Assign an accountable owner and evidence path</p>
+    </article>
+    <article class="lane">
+      <div class="lane-top"><span>Savings</span><strong>76/100</strong></div>
+      <h3>Duplicated tooling and stale workflow evidence</h3>
+      <p><b>Owner:</b> Finance partner</p>
+      <p><b>Next move:</b> Quantify recoverable spend and remove duplicated handoffs</p>
+    </article>
+    <article class="lane">
+      <div class="lane-top"><span>Investment</span><strong>88/100</strong></div>
+      <h3>Critical control plane needs clearer funding priority</h3>
+      <p><b>Owner:</b> Platform lead</p>
+      <p><b>Next move:</b> Package the strongest board-ready investment narrative</p>
+    </article></div>
+    </section>
+    <section class="panel">
+      <h2>How a SaaS GTM analyst and value architect would read it</h2>
+      <div class="lenses">
+        <article class="lens"><span>Revenue strategist</span><p><b>Question:</b> Which systems create growth drag or customer-risk leakage?</p><p>Current signal cluster: Gainsight, ChurnZero.</p></article>
+        <article class="lens"><span>Product marketing</span><p><b>Question:</b> Which proof points are buyer-readable without exposing implementation secrets?</p><p>The page packages platform proof as language a CFO, CIO, CRO, or board sponsor can scan quickly.</p></article>
+        <article class="lens"><span>Technical reviewer</span><p><b>Question:</b> Is there a deterministic data contract?</p><p>The CLI summarizes fixture lanes into JSON and regenerates this static surface without connecting to live customer systems.</p></article>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>What these repos have in common</h2>
+      <div class="callout">Each repo is a public proof primitive for Kinetic Gain: normalize fragmented operational signals, score them consistently, route the next decision, and publish a board-safe evidence packet.</div>
+      <p>Security posture: all data is synthetic fixture data. No customer tenant, credential, token, employee, financial, or private operational data is required for the public demo.</p>
+    </section>
+    <footer>
+      <span>Gainsight ChurnZero Retention Risk Ledger</span>
+      <a href="https://portfolio.kineticgain.com/">Portfolio</a>
+      <a href="https://kineticgain.com/">Kinetic Gain</a>
+      <a href="https://github.com/mizcausevic-dev">GitHub</a>
+    </footer>
   </main>
 </body>
 </html>

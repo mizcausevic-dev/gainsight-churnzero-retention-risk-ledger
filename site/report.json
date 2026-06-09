@@ -1,0 +1,28 @@
+{
+  "product": "Gainsight ChurnZero Retention Risk Ledger",
+  "vertical": "Revenue Operations",
+  "signals": [
+    "Gainsight",
+    "ChurnZero"
+  ],
+  "averageScore": 82,
+  "priorityLane": "investment",
+  "laneCount": 3,
+  "nextActions": [
+    {
+      "lane": "exposure",
+      "owner": "Executive operator",
+      "next": "Assign an accountable owner and evidence path"
+    },
+    {
+      "lane": "savings",
+      "owner": "Finance partner",
+      "next": "Quantify recoverable spend and remove duplicated handoffs"
+    },
+    {
+      "lane": "investment",
+      "owner": "Platform lead",
+      "next": "Package the strongest board-ready investment narrative"
+    }
+  ]
+}
